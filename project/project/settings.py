@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'testapp',
-    'django-filters',
+    'django_filters',
 ]
 
 SITE_ID = 1
