@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.views.generic import (
-    ListView, DetailView, CreateView, UpdateView
+    ListView, DetailView, CreateView, UpdateView, DeleteView
 )
 
 from .filters import ProductFilter
@@ -38,8 +38,13 @@ class ProductCreate(CreateView):
     template_name = 'product_edit.html'
 
 
-# Добавляем представление для изменения товара.
 class ProductUpdate(UpdateView):
     form_class = ProductForm
     model = Product
     template_name = 'product_edit.html'
+
+# Представление удаляющее товар.
+class ProductDelete(DeleteView):
+    model = Product
+    template_name = 'product_delete.html'
+    success_url = reverse_lazy('product_list')
