@@ -2,6 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
 )
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .filters import ProductFilter
 from .forms import ProductForm
@@ -32,7 +33,8 @@ class ProductDetail(DetailView):
     context_object_name = 'product'
 
 
-class ProductCreate(CreateView):
+class ProductCreate(LoginRequiredMixin, CreateView):
+    raise_exception = True
     form_class = ProductForm
     model = Product
     template_name = 'product_edit.html'
