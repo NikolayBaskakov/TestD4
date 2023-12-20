@@ -144,8 +144,10 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAY = 1
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.yandex.ru'
@@ -154,5 +156,8 @@ EMAIL_HOST_USER = "n.n.baskakov"
 EMAIL_HOST_PASSWORD = "bikoquulvwfhcbwz"
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
+EMAIL_SUBJECT_PREFIX = 'TestAPP'
 
 DEFAULT_FROM_EMAIL = "n.n.baskakov@yandex.ru"
+
+SERVER_EMAIL =  "n.n.baskakov@yandex.ru"
