@@ -38,7 +38,7 @@ class Product(models.Model):
 # Категория, к которой будет привязываться товар
 class Category(models.Model):
     # названия категорий тоже не должны повторяться
-    name = models.CharField(max_length=100, unique=True) 
+    name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.name.title()
@@ -47,7 +47,7 @@ class Order(models.Model):
     time_in = models.DateTimeField(auto_now_add = True)
     time_out = models.DateTimeField(null = True)
     cost = models.FloatField(default = 0.0)
-    pickup = models.BooleanField(default = False)    
+    pickup = models.BooleanField(default = False)
     complete = models.BooleanField(default = False)
     staff = models.ForeignKey(Staff, on_delete = models.CASCADE)
     
@@ -56,7 +56,7 @@ class Order(models.Model):
 class ProductOrder(models.Model):
     product = models.ForeignKey(Product, on_delete = models.CASCADE)
     order = models.ForeignKey(Order, on_delete = models.CASCADE)
-    amount = models.IntegerField(default = 1) 
+    amount = models.IntegerField(default = 1)
     
 class Subscription(models.Model):
     user = models.ForeignKey(

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.yandex',
+    "django_apscheduler",
 ]
 
 SITE_ID = 1
@@ -149,15 +150,19 @@ ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAY = 1
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = "n.n.baskakov"
-EMAIL_HOST_PASSWORD = "bikoquulvwfhcbwz"
+EMAIL_HOST_USER = "someuser"
+EMAIL_HOST_PASSWORD = "somepassword"
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_SUBJECT_PREFIX = 'TestAPP'
 
-DEFAULT_FROM_EMAIL = "n.n.baskakov@yandex.ru"
+DEFAULT_FROM_EMAIL = "somebody@mail.ru"
 
 SERVER_EMAIL =  "n.n.baskakov@yandex.ru"
+MANAGERS = [
+    ('Ivan', 'ivan@mail.ru'),
+    ('Volodya', 'volod@yandex.ru')
+]
