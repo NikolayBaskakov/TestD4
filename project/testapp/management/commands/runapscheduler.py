@@ -15,9 +15,7 @@ logger = logging.getLogger(__name__)
 
 
 def my_job():
-    products = Product.objects.order_by('price')[:3]
-    text = '\n'.join(['{} - {}'.format(p.name, p.price) for p in products])
-    mail_managers("Самые дешевые товары", text)
+    pass
 
 @util.close_old_connections
 def delete_old_job_executions(max_age=604_800):
